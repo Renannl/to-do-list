@@ -1,69 +1,53 @@
-# React + TypeScript + Vite
+# To-Do List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é um projeto de To-Do List (lista de tarefas) desenvolvido com React, TypeScript, Vite e Tailwind CSS.
 
-Currently, two official plugins are available:
+## Funcionalidades
+- Adicionar, marcar como concluída e remover tarefas
+- Filtrar tarefas (todas, ativas, concluídas)
+- Limpar tarefas concluídas
+- Interface responsiva e tema escuro/claro
+- Fonte personalizada (Josefin Sans)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tecnologias Utilizadas
+- [React](https://react.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Estrutura do Projeto
+```
+├── public/
+│   └── fonts/           # Fontes personalizadas
+├── src/
+│   ├── assets/          # Imagens e ícones
+│   ├── components/      # Componentes React
+│   ├── contexts/        # Contextos de tema
+│   ├── hooks/           # Hooks customizados
+│   ├── globals.css      # CSS global e Tailwind
+│   └── main.tsx         # Ponto de entrada
+├── tailwind.config.js   # Configuração do Tailwind
+├── package.json         # Dependências e scripts
+└── README.md            # Documentação
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Instalação e Uso
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/SEU_USUARIO/to-do-list.git
+   cd to-do-list
+   ```
+2. Instale as dependências:
+   ```bash
+   npm install
+   ```
+3. Rode o projeto:
+   ```bash
+   npm run dev
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Personalização da Fonte
+As fontes estão em `public/fonts` e são importadas em `src/globals.css` via `@font-face`. O Tailwind está configurado para usar a fonte Josefin Sans com a classe `font-josefin`.
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Licença
+Este projeto é open-source e está sob a licença MIT.

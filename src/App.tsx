@@ -1,25 +1,23 @@
 import TodoHeader from "./components/TodoHeader"
 import TodoForm from "./components/TodoForm"
 import TodoList from "./components/TodoList"
-import { themeConfig } from "./contexts/theme"
-import { ThemeContext } from "./contexts/ThemeContext"
-import { useContext } from "react"
+import { TodoContainer } from "./components/TodoContainer"
+import { useTodo } from "./hooks/useTodo"
+
 
 
 function App() {
-  const {theme} = useContext(ThemeContext);
+
+  const {addTodo, toggleTodoCompleted, filter, setFilter, filteredTodos, clearCompleted} = useTodo();
+
 
   return (
-    <main className={`${themeConfig[theme].layout.backgroundColor} h-screen`}>
-      <div className={`${themeConfig[theme].layout.heroClass} h-80 bg-cover bg-center `}>
-        <div className="max-w-[43.75rem] m-auto p-2">
-          <TodoHeader/>
-          <TodoForm/>
-          <TodoList/>
-        </div>
-      </div>
-    </main>
-  )
-}
+          <TodoContainer>
+            <TodoHeader/>
+            <TodoForm addTodo={addTodo}/>
+            <TodoList todoList={filteredTodos} toggleTodoCompleted={toggleTodoCompleted} setFilter={setFilter} filter={filter} clearCompleted={clearCompleted}/>
+          </TodoContainer>
+)}
 
 export default App
+
